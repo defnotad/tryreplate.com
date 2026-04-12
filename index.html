@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replate — Second Serving. First Choice.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark:   #1C4A2A;
+    --mid:    #2D7A4A;
+    --accent: #3AB26A;
+    --pale:   #EBF5EE;
+    --cream:  #F7FBF8;
+    --white:  #FFFFFF;
+    --ink:    #1A1A1A;
+    --muted:  #5A7A63;
+    --rule:   #C8DFD0;
+    --warm:   #FFF8F0;
+    --amber:  #7D4E00;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: 'Playfair Display', Georgia, serif; }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.1rem 2.5rem;
+    background: rgba(28, 74, 42, 0.97);
+    backdrop-filter: blur(8px);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--white);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+  .logo span { color: #A8D5B8; font-weight: 400; }
+  nav a.cta-nav {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.35);
+    padding: 0.45rem 1.1rem;
+    border-radius: 2px;
+    transition: background 0.2s, border-color 0.2s;
+  }
+  nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    background: var(--dark);
+    display: flex; align-items: center;
+    padding: 7rem 2.5rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .orb1 { width: 520px; height: 520px; right: -120px; top: -80px; background: radial-gradient(circle, #2D7A4A22 0%, transparent 70%); }
+  .orb2 { width: 320px; height: 320px; left: 40%; bottom: -60px; background: radial-gradient(circle, #3AB26A18 0%, transparent 70%); }
+
+  .hero-inner { max-width: 760px; position: relative; z-index: 1; }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.6rem;
+  }
+  #hero h1 {
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+  }
+  #hero h1 em { font-style: italic; color: #A8D5B8; }
+  #hero p {
+    font-size: 1.1rem;
+    color: #A8D5B8;
+    line-height: 1.7;
+    max-width: 560px;
+    margin-bottom: 2.4rem;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.9rem 2rem;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: #2D9A58; transform: translateY(-1px); }
+
+  .hero-rule {
+    display: flex; align-items: center; gap: 1rem;
+    margin-top: 4rem;
+    opacity: 0.4;
+  }
+  .hero-rule span { font-size: 0.75rem; color: var(--white); letter-spacing: 0.1em; white-space: nowrap; }
+  .hero-rule hr { flex: 1; border: none; border-top: 1px solid rgba(255,255,255,0.3); }
+
+  /* ── SECTION COMMON ── */
+  section { padding: 6rem 2.5rem; }
+  .container { max-width: 1080px; margin: 0 auto; }
+  .section-tag {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.9rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    color: var(--dark);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 580px;
+    margin-bottom: 3rem;
+  }
+
+  /* ── PROBLEM ── */
+  #problem { background: var(--cream); }
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  .stat-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 1.8rem 1.6rem;
+  }
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 0.6rem;
+  }
+  .stat-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+  .stat-sub { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  .callout {
+    background: var(--warm);
+    border-left: 3px solid #E8A84A;
+    padding: 1.2rem 1.6rem;
+    font-size: 0.95rem;
+    color: var(--amber);
+    line-height: 1.65;
+    font-style: italic;
+    max-width: 820px;
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how { background: var(--white); }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+  .step {
+    padding: 2.2rem 1.8rem;
+    border-right: 1px solid var(--rule);
+    position: relative;
+  }
+  .step:last-child { border-right: none; }
+  .step-num {
+    width: 36px; height: 36px;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+  .step h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--dark);
+    margin-bottom: 0.7rem;
+    line-height: 1.3;
+  }
+  .step p { font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+
+  .how-footer {
+    margin-top: 1.6rem;
+    padding: 1.1rem 1.6rem;
+    background: var(--pale);
+    border-left: 3px solid var(--accent);
+    font-size: 0.92rem;
+    color: var(--dark);
+    font-style: italic;
+  }
+
+  /* ── WHY PARTNER ── */
+  #why { background: var(--pale); }
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.2rem;
+  }
+  .benefit-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 1.8rem 1.6rem;
+    position: relative;
+  }
+  .benefit-icon {
+    width: 40px; height: 40px;
+    background: var(--pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  .benefit-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+  .benefit-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.65; }
+
+  /* ── WHO THIS IS FOR ── */
+  #who { background: var(--white); }
+  .who-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 700px) { .who-inner { grid-template-columns: 1fr; gap: 2rem; } }
+  .who-left .section-title { margin-bottom: 1rem; }
+  .who-left p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+  .who-right {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--accent);
+    padding: 2rem;
+  }
+  .who-right p {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--dark);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .who-list { list-style: none; }
+  .who-list li {
+    font-size: 0.9rem;
+    color: var(--ink);
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    line-height: 1.5;
+  }
+  .who-list li:last-child { border-bottom: none; }
+  .who-list li::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  /* ── PARTNER CTA ── */
+  #partner {
+    background: var(--dark);
+    padding: 6rem 2.5rem;
+  }
+  #partner .section-tag { color: #A8D5B8; }
+  #partner .section-title { color: var(--white); }
+  #partner .section-sub { color: #A8D5B8; }
+
+  .partner-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  @media (max-width: 700px) { .partner-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+  .pilot-details { margin-top: 2rem; }
+  .pilot-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: flex-start;
+  }
+  .pilot-item:last-child { border-bottom: none; }
+  .pilot-num {
+    width: 26px; height: 26px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    color: var(--accent);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+  .pilot-item p { font-size: 0.88rem; color: #A8D5B8; line-height: 1.6; }
+  .pilot-item strong { color: var(--white); font-weight: 500; }
+
+  /* FORM */
+  form { display: flex; flex-direction: column; gap: 0.9rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.9rem; }
+  @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+  input, textarea, select {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    padding: 0.85rem 1rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.35); }
+  input:focus, textarea:focus { border-color: var(--accent); }
+  textarea { resize: vertical; min-height: 90px; }
+  button[type="submit"] {
+    background: var(--accent);
+    color: var(--white);
+    border: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.95rem;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  button[type="submit"]:hover { background: #2D9A58; transform: translateY(-1px); }
+  .form-note { font-size: 0.78rem; color: rgba(255,255,255,0.35); line-height: 1.5; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #111F16;
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  footer .logo { font-size: 1.1rem; }
+  footer p { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.4rem; }
+    section { padding: 4rem 1.4rem; }
+    #hero { padding: 6rem 1.4rem 4rem; }
+    .steps { border: none; }
+    .step { border: 1px solid var(--rule); border-right: 1px solid var(--rule); margin-bottom: -1px; }
+    footer { flex-direction: column; }
+  }
+
+  /* ── FADE IN ── */
+  .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
+  .fade-in.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="logo">Re<span>plate</span></a>
+  <a href="#partner" class="cta-nav">Become a Partner</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-orb orb1"></div>
+  <div class="hero-orb orb2"></div>
+  <div class="hero-inner">
+    <div class="hero-tag">Hyderabad · Pilot Programme 2025</div>
+    <h1>Your surplus should<br><em>work for you.</em></h1>
+    <p>Replate connects Hyderabad's best bakeries and cafés with customers ready to buy your end-of-day boxes — before closing time. Guaranteed revenue. Zero change to your operations.</p>
+    <a href="#partner" class="btn-primary">Become a Founding Partner →</a>
+    <div class="hero-rule">
+      <hr>
+      <span>Second serving. First choice.</span>
+      <hr>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problem">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-tag">The Problem</p>
+      <h2 class="section-title">Every night, revenue walks out the door.</h2>
+      <p class="section-sub">Unsold food is not a sustainability story. It is a lost income story — and it plays out in every premium bakery in the city, every single day.</p>
+    </div>
+    <div class="stat-grid fade-in">
+      <div class="stat-card">
+        <div class="stat-number">30–40%</div>
+        <div class="stat-label">of daily bakery output</div>
+        <div class="stat-sub">goes unsold by closing time, across categories</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹0</div>
+        <div class="stat-label">net revenue from disposal</div>
+        <div class="stat-sub">Whether transported to a central kitchen, discarded on-site, or sold as residue — the income story ends the same way</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">₹0</div>
+        <div class="stat-label">in brand value earned</div>
+        <div class="stat-sub">No new customer acquired. No sustainability record. No return on the day's finest items.</div>
+      </div>
+    </div>
+    <div class="callout fade-in">
+      The question is not whether you have surplus. Every bakery we have spoken to does. The question is whether that surplus should earn you ₹8 — or ₹149.
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-tag">How It Works</p>
+      <h2 class="section-title">Three steps. No new process.</h2>
+      <p class="section-sub">Replate is designed to sit alongside your existing operations — not inside them.</p>
+    </div>
+    <div class="steps fade-in">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h3>You set aside tonight's surplus</h3>
+        <p>Before 6pm, your team sets aside the day's unsold items as surprise boxes. No fixed quantity. No consistency required. You decide what goes in.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h3>Customers reserve on Replate</h3>
+        <p>Users in your area see your box on the app and reserve it before closing. You receive confirmed demand — and confirmed revenue — before the day ends.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h3>They collect. You earn.</h3>
+        <p>Customers arrive with a QR code. Your team hands over the box in under 30 seconds. Revenue reaches your account within 24 hours.</p>
+      </div>
+    </div>
+    <div class="how-footer fade-in">
+      No delivery. No integration. No hardware. No change to your operations. The only thing that changes is what happens to items that would otherwise be disposed of.
+    </div>
+  </div>
+</section>
+
+<!-- WHY PARTNER -->
+<section id="why">
+  <div class="container">
+    <div class="fade-in">
+      <p class="section-tag">Why Partner With Us</p>
+      <h2 class="section-title">Three things your disposal route cannot offer.</h2>
+    </div>
+    <div class="benefit-grid fade-in">
+      <div class="benefit-card">
+        <div class="benefit-icon">₹</div>
+        <h3>Real revenue on items you were writing off</h3>
+        <p>A croissant that sold for ₹180 at noon should not recover ₹1 at closing time. Replate customers pay ₹149–199 per box — and you keep the majority of that.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">↩</div>
+        <h3>New customers who come back at full price</h3>
+        <p>Replate users discover your brand through a surplus box. They return for the full experience. Your acquisition cost for a new loyal customer is effectively zero.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-icon">✦</div>
+        <h3>A sustainability record your brand can own</h3>
+        <p>Every box sold is documented food waste prevented. This translates directly into CSR reporting, carbon credit documentation, and a brand narrative that premium customers increasingly expect.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS FOR -->
+<section id="who">
+  <div class="container">
+    <div class="who-inner fade-in">
+      <div class="who-left">
+        <p class="section-tag">Who This Is For</p>
+        <h2 class="section-title">Built exclusively for Hyderabad's premium establishments.</h2>
+        <p>Replate is not a discount platform. We partner only with trusted, quality-first bakeries and cafés — because our customers are paying for your brand, not just a deal.</p>
+        <p>If a customer picks up a Replate box from your counter and it is excellent, they remember you. That only works if you are excellent to begin with.</p>
+      </div>
+      <div class="who-right">
+        <p>We are looking for</p>
+        <ul class="who-list">
+          <li>Established bakeries and patisseries with a loyal customer base</li>
+          <li>Cafés with daily perishable surplus across pastries, breads, or prepared items</li>
+          <li>Brands where quality is consistent — not just on good days</li>
+          <li>Owner-operators or managers who can make decisions independently</li>
+          <li>Locations in Jubilee Hills or Banjara Hills for the pilot phase</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNER CTA -->
+<section id="partner">
+  <div class="container">
+    <div class="partner-grid">
+      <div>
+        <p class="section-tag">The Ask</p>
+        <h2 class="section-title" style="color:var(--white)">Let's run a 60-day pilot together.</h2>
+        <p class="section-sub">We are onboarding three founding partners in Jubilee Hills and Banjara Hills. No obligation after the pilot. Just data, new customers, and revenue you were leaving behind.</p>
+        <div class="pilot-details">
+          <div class="pilot-item">
+            <div class="pilot-num">1</div>
+            <p><strong>Set aside 15–25 boxes per evening.</strong> Whatever surplus exists that day. No guarantee on quantity needed.</p>
+          </div>
+          <div class="pilot-item">
+            <div class="pilot-num">2</div>
+            <p><strong>One point of contact.</strong> A WhatsApp message confirming availability by 6pm is all we need.</p>
+          </div>
+          <div class="pilot-item">
+            <div class="pilot-num">3</div>
+            <p><strong>Allow counter collections.</strong> QR code verification handled by our app. Under 30 seconds per handoff.</p>
+          </div>
+          <div class="pilot-item">
+            <div class="pilot-num">4</div>
+            <p><strong>Share honest feedback.</strong> After 60 days, we sit down together. If it worked, we formalise. If not, you walk away with data and zero obligation.</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <form name="partner" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="partner">
+          <input type="text" name="bot-field" style="display:none">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your name" required>
+            <input type="text" name="business" placeholder="Business name" required>
+          </div>
+          <input type="tel" name="phone" placeholder="Phone number" required>
+          <input type="email" name="email" placeholder="Email address">
+          <textarea name="message" placeholder="Tell us briefly about your bakery or café — location, what you sell, rough daily volume if you know it."></textarea>
+          <button type="submit">Express Interest →</button>
+          <p class="form-note">We will reach out within 48 hours. No sales pitch — just a conversation to see if this makes sense for you.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#hero" class="logo">Re<span>plate</span></a>
+  <p>Hyderabad Pilot · 2025 · tryreplate.com</p>
+  <p>Second serving. First choice.</p>
+</footer>
+
+<script>
+  // Fade in on scroll
+  const els = document.querySelectorAll('.fade-in');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
