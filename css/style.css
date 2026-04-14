@@ -185,7 +185,7 @@ section { padding: 6rem 2.5rem; }
   color: var(--amber);
   line-height: 1.65;
   font-style: italic;
-  max-width: 820px;
+  max-width: 100%;
 }
 
 /* ── HOW IT WORKS ── */
