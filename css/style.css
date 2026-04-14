@@ -138,21 +138,22 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
 }
 .phones-row {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  gap: 16px;
 }
 .phone-wrap {
-  border-radius: 24px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
 }
 .phone-wrap img {
   display: block;
-  height: 340px;
+  max-height: 320px;
   width: auto;
 }
 .phone-wrap.phone-bottom {
-  margin-top: 40px;
-  margin-left: -14px;
+  margin-top: -20px;
+  margin-left: -40px;
 }
 .phone-caption {
   color: var(--white);
@@ -161,7 +162,7 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
   margin-top: 1rem;
   opacity: 0.5;
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .hero-phones { display: none; }
 }
 
