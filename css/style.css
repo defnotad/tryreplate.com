@@ -135,6 +135,7 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
+  width: 520px;
 }
 .phones-row {
   display: flex;
@@ -148,7 +149,7 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
 }
 .phone-wrap img {
   display: block;
-  max-height: 320px;
+  max-height: 480px;
   width: auto;
 }
 .phone-wrap.phone-bottom {
