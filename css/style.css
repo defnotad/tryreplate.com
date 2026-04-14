@@ -63,7 +63,7 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
   display: flex; align-items: center;
   padding: 7rem 2.5rem 5rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 .hero-orb {
   position: absolute;
@@ -135,7 +135,10 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
   flex-direction: column;
   align-items: center;
   flex-shrink: 0;
-  width: 380px;
+  width: 440px;
+  position: relative;
+  align-self: center;
+  overflow: visible;
 }
 .phones-row {
   display: flex;
@@ -149,12 +152,22 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
 }
 .phone-wrap img {
   display: block;
-  max-height: 360px;
+  max-height: 400px;
   width: auto;
 }
+.phone-wrap:first-child {
+  max-height: 400px;
+  width: auto;
+  position: relative;
+  z-index: 2;
+  margin-left: 40px;
+}
 .phone-wrap.phone-bottom {
-  margin-top: -80px;
-  margin-left: -40px;
+  max-height: 400px;
+  width: auto;
+  margin-top: -300px;
+  margin-left: 160px;
+  z-index: 3;
 }
 .phone-caption {
   color: var(--white);
