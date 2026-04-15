@@ -74,15 +74,11 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
 .orb2 { width: 320px; height: 320px; left: 40%; bottom: -60px; background: radial-gradient(circle, #3AB26A18 0%, transparent 70%); }
 
 .hero-layout {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
   width: 100%;
   position: relative;
   z-index: 1;
 }
-.hero-inner { max-width: 520px; position: relative; }
+.hero-inner { max-width: 680px; position: relative; }
 .hero-tag {
   display: inline-block;
   font-size: 0.72rem;
@@ -129,60 +125,6 @@ nav a.cta-nav:hover { background: var(--accent); border-color: var(--accent); }
 }
 .hero-rule span { font-size: 0.75rem; color: var(--white); letter-spacing: 0.1em; white-space: nowrap; }
 .hero-rule hr { flex: 1; border: none; border-top: 1px solid rgba(255,255,255,0.3); }
-
-.hero-phones {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  width: 440px;
-  position: relative;
-  align-self: center;
-  overflow: visible;
-}
-.phones-row {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  background: none;
-  padding: 0;
-}
-.phone-wrap {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 16px 40px rgba(0,0,0,0.35);
-  background: none;
-  padding: 0;
-}
-.phone-wrap img {
-  display: block;
-  max-height: 400px;
-  width: auto;
-}
-.phone-wrap:first-child {
-  max-height: 400px;
-  width: auto;
-  position: relative;
-  z-index: 2;
-  margin-left: 40px;
-}
-.phone-wrap.phone-bottom {
-  max-height: 400px;
-  width: auto;
-  margin-top: -300px;
-  margin-left: 160px;
-  z-index: 3;
-}
-.phone-caption {
-  color: var(--white);
-  font-size: 11px;
-  font-style: italic;
-  margin-top: 1rem;
-  opacity: 0.5;
-}
-@media (max-width: 900px) {
-  .hero-phones { display: none; }
-}
 
 /* ── SECTION COMMON ── */
 section { padding: 6rem 2.5rem; }
