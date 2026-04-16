@@ -414,3 +414,50 @@ footer p { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
 /* ── FADE IN ── */
 .fade-in { opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; }
 .fade-in.visible { opacity: 1; transform: none; }
+
+/* ── HERO PHONES ── */
+.hero-phones {
+  position: absolute;
+  right: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+.hero-phone {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.hero-phone img {
+  display: block;
+  width: 190px;
+  height: auto;
+}
+.hero-phone-1 {
+  position: relative;
+  z-index: 2;
+  margin-right: 60px;
+}
+.hero-phone-2 {
+  position: relative;
+  z-index: 3;
+  margin-top: -120px;
+  margin-right: 0;
+}
+.hero-phone-caption {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+  margin-top: 0.6rem;
+  text-align: right;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 900px) {
+  .hero-phones { display: none; }
+}
