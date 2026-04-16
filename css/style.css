@@ -422,41 +422,37 @@ footer p { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.05em; }
   top: 50%;
   transform: translateY(-50%);
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 0;
-  pointer-events: none;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
   z-index: 2;
+  pointer-events: none;
 }
 .hero-phone {
-  border-radius: 18px;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.08);
 }
 .hero-phone img {
   display: block;
-  width: 190px;
+  width: 160px;
   height: auto;
 }
 .hero-phone-1 {
-  position: relative;
-  z-index: 2;
-  margin-right: 60px;
+  margin-top: 0;
 }
 .hero-phone-2 {
-  position: relative;
-  z-index: 3;
-  margin-top: -120px;
-  margin-right: 0;
+  margin-top: 30px;
 }
 .hero-phone-caption {
-  font-size: 0.72rem;
-  color: rgba(255,255,255,0.35);
+  position: absolute;
+  bottom: -1.4rem;
+  right: 0;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.3);
   font-style: italic;
-  margin-top: 0.6rem;
-  text-align: right;
-  letter-spacing: 0.03em;
+  white-space: nowrap;
 }
 @media (max-width: 900px) {
   .hero-phones { display: none; }
